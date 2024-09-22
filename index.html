@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login con Firebase - Quartz Theme</title>
+
+    <!-- Incluir el CSS de la plantilla Quartz desde Bootswatch -->
+    <link href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.1/dist/quartz/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Incluir Firebase y tu archivo de estilos personalizados -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Incluir Firebase y tu archivo main.js -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-auth-compat.js"></script>
+    <script src="main.js" defer></script>
+</head>
+<body>
+    <div id="login-container" class="container">
+        <h2>Iniciar Sesión</h2>
+
+        <div id="login-options" class="my-4">
+            <div id="login-form">
+                <div class="mb-3">
+                    <input type="email" id="email" class="form-control" placeholder="Correo electrónico" required>
+                </div>
+                <div class="mb-3">
+                    <input type="password" id="password" class="form-control" placeholder="Contraseña" required>
+                </div>
+                <button id="email-login-btn" class="btn btn-primary btn-block">Iniciar Sesión</button>
+            </div>
+
+            <div class="my-3 text-center">
+                <h3>O</h3>
+                <button id="google-login-btn" class="btn btn-danger btn-block">Iniciar Sesión con Google</button>
+            </div>
+
+            <div class="my-3 text-center">
+                <h3>O</h3>
+                <button id="show-phone-login-btn" class="btn btn-secondary btn-block">Iniciar Sesión con Otro Método</button>
+            </div>
+
+            <div class="text-center">
+                <p>¿Eres nuevo? <a href="#" id="show-register-btn">Añadir una Cuenta</a></p>
+            </div>
+        </div>
+
+        <div id="phone-login-form" style="display: none;" class="my-4">
+            <h3>Iniciar sesión con Número de Teléfono</h3>
+            <div class="mb-3">
+                <select id="country-code" class="form-select">
+                    <option value="+1">+1 (USA)</option>
+                    <option value="+44">+44 (UK)</option>
+                    <option value="+91">+91 (India)</option>
+                    <option value="+86">+86 (China)</option>
+                    <option value="+34">+34 (España)</option>
+                    <option value="+52">+52 (México)</option>
+                    <option value="+55">+55 (Brasil)</option>
+                    <option value="+33">+33 (Francia)</option>
+                    <option value="+49">+49 (Alemania)</option>
+                    <option value="+81">+81 (Japón)</option>
+                    <option value="+7">+7 (Rusia)</option>
+                    <option value="+61">+61 (Australia)</option>
+                    <option value="+591" selected>+591 (Bolivia)</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <input type="tel" id="phone-number" class="form-control" placeholder="Número de Teléfono" required>
+            </div>
+            <div id="recaptcha-container" class="mb-3"></div>
+            <button id="phone-login-btn" class="btn btn-primary btn-block">Enviar Código SMS</button>
+            <div class="mb-3">
+                <input type="text" id="verification-code" class="form-control" placeholder="Código de verificación">
+            </div>
+            <button id="verify-code-btn" class="btn btn-success btn-block">Verificar Código</button>
+            <button id="back-to-login-options" class="btn btn-secondary btn-block">Volver</button>
+        </div>
+
+        <div id="register-form" style="display: none;" class="my-4">
+            <h3>Registro de nuevo usuario</h3>
+            <div class="mb-3">
+                <input type="email" id="new-email" class="form-control" placeholder="Correo electrónico" required>
+            </div>
+            <div class="mb-3">
+                <input type="password" id="new-password" class="form-control" placeholder="Contraseña" required>
+            </div>
+            <button id="register-btn" class="btn btn-primary btn-block">Registrar</button>
+            <button id="back-to-login-options-from-register" class="btn btn-secondary btn-block">Volver</button> 
+        </div>
+    </div>
+
+    <div id="content" style="display: none;" class="container">
+        <h1>Hola Mundo</h1>
+        <button id="logout-btn" class="btn btn-danger btn-block">Cerrar Sesión</button>
+    </div>
+
+    <!-- Incluir el JavaScript de Bootstrap y sus dependencias -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
